@@ -16,13 +16,12 @@ STDOUT.sync = true
 http = Net::HTTP.new('api.github.com', 443)
 http.use_ssl = true
 http.start do |http|
-   req = Net::HTTP::Get.new("/repos/#{user}/#{repo}/labels")
+	req = Net::HTTP::Get.new("/repos/#{user}/#{repo}/labels")
 
-   # we make an HTTP basic auth by passing the
-   # username and password
-   req.basic_auth user, pass
+	# use HTTP basic auth by passing the
+	# username and password
+	req.basic_auth user, pass
 
-   resp, data = http.request(req)
+	resp, data = http.request(req)
    
-   puts resp.body
 end
