@@ -31,9 +31,6 @@ http.start do |http|
 	# parse the returned JSON into a hash
 	result = JSON.parse(data)
 
-	# output the hashes
-	puts result
-
 	#output a list of the labels the repository has
 	result.each { |label|
 		puts label['name']
