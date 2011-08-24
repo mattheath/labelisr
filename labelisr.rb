@@ -4,6 +4,7 @@
 # Author:: Matt Heath <hi@mattheath.com>
 # License:: MIT <http://www.opensource.org/licenses/mit-license.php>
 
+require 'json'
 require 'net/http'
 require 'net/https'
 
@@ -22,6 +23,18 @@ http.start do |http|
 	# username and password
 	req.basic_auth user, pass
 
+	# make the request
 	resp, data = http.request(req)
-   
+
+	# parse the returned JSON into a hash
+	result = JSON.parse(data)
+
+	# output the hashes
+	puts result
+
+	#output a list of the labels the repository has
+	result.each { |label|
+		puts label['name']
+	}
+
 end
