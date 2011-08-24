@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 # Labelisr
 #   Maintain labels in GitHub Issues for one or more repositories
 #
